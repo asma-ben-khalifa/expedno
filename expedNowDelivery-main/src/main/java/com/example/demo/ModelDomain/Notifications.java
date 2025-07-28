@@ -1,0 +1,41 @@
+package com.example.demo.ModelDomain;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
+
+import com.example.demo.ModelDomain.NotificationsType;
+import com.example.demo.ModelDomain.User;;
+
+@Entity
+@Getter
+@Setter
+public class Notifications {
+    
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    private String message;
+    
+    private boolean isRead = false;
+
+    private LocalDateTime createdAt = LocalDateTime.now();  
+
+    @Enumerated(EnumType.STRING)
+    private NotificationsType notificationType;
+
+    @ManyToOne
+    @JoinColumn(name  = "user_id", nullable = false)
+    private User user;
+
+}
