@@ -1,0 +1,32 @@
+
+<h2>Ajouter un véhicule</h2>
+<div style="display:flex ;gap: 40px; align-items: flex-start;" >
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Matricule :</label>
+    <input formControlName="matricule" />
+    <div *ngIf="form.get('matricule')?.invalid && form.get('matricule')?.touched" style="color:red">
+      Le matricule est obligatoire.
+    </div>
+  </div>
+
+  <div>
+    <label>Numéro de série :</label>
+    <input formControlName="numSerie" />
+    <div *ngIf="form.get('numSerie')?.invalid && form.get('numSerie')?.touched" style="color:red">
+      Le numéro de série est obligatoire.
+    </div>
+  </div>
+
+  <div>
+    <label>
+      Disponible :
+      <input type="checkbox" formControlName="disponible" />
+    </label>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Enregistrer</button>
+</form>
+ <div class="image-background"></div>
+   
+  </div>
