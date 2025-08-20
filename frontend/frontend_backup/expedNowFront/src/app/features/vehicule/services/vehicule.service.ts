@@ -18,4 +18,8 @@ export class VehiculeService {
   saveVehicule(data : SaveVehiculeRequest) : Observable<Vehicule>{
    return this.http.post<Vehicule>(`${this.apiUrl}/`, data);
   }
+
+  afficherListeVehicule() : Observable<Vehicule[]>{
+  return this.http.get<Vehicule[]>(`${this.apiUrl}/`);
+  }
 }

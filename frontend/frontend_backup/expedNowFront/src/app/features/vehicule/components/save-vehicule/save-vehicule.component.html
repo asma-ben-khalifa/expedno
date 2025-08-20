@@ -1,32 +1,32 @@
+<div class="form-container">
+  <h2 class="form-title">Ajouter un véhicule</h2>
 
-<h2>Ajouter un véhicule</h2>
-<div style="display:flex ;gap: 40px; align-items: flex-start;" >
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div>
-    <label>Matricule :</label>
-    <input formControlName="matricule" />
-    <div *ngIf="form.get('matricule')?.invalid && form.get('matricule')?.touched" style="color:red">
-      Le matricule est obligatoire.
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="vehicle-form">
+    <div class="form-group">
+      <label class="form-label">Matricule :</label>
+      <input class="form-input" formControlName="matricule" />
+      <div *ngIf="form.get('matricule')?.invalid && form.get('matricule')?.touched" class="error-message">
+        Le matricule est obligatoire.
+      </div>
     </div>
-  </div>
 
-  <div>
-    <label>Numéro de série :</label>
-    <input formControlName="numSerie" />
-    <div *ngIf="form.get('numSerie')?.invalid && form.get('numSerie')?.touched" style="color:red">
-      Le numéro de série est obligatoire.
+    <div class="form-group">
+      <label class="form-label">Numéro de série :</label>
+      <input class="form-input" formControlName="numSerie" />
+      <div *ngIf="form.get('numSerie')?.invalid && form.get('numSerie')?.touched" class="error-message">
+        Le numéro de série est obligatoire.
+      </div>
     </div>
-  </div>
 
-  <div>
-    <label>
-      Disponible :
-      <input type="checkbox" formControlName="disponible" />
-    </label>
-  </div>
+    <div class="form-group checkbox-group">
+      <label class="form-label">
+        Disponible :
+        <input type="checkbox" formControlName="disponible" class="form-checkbox" />
+      </label>
+    </div>
 
-  <button type="submit" [disabled]="form.invalid">Enregistrer</button>
-</form>
- <div class="image-background"></div>
-   
-  </div>
+    <button type="submit" class="submit-btn" [disabled]="form.invalid">Enregistrer</button>
+  </form>
+
+  <div class="form-image"></div>
+</div>
